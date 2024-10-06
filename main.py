@@ -8,6 +8,7 @@ from sympy.core.random import randint
 from random import randint, uniform
 from pygame.sprite import Sprite
 from settings import *
+from player import Player
 
 class Game():
     def __init__(self):
@@ -17,6 +18,10 @@ class Game():
         self.clock = pygame.time.Clock()  # control framerate, control
         self.running = True
         self.FPS_target = FPS_TARGET
+        #groups
+        self.all_sprites = pygame.sprite.Group()
+        #sprites
+        self.player = Player(self.all_sprites,WINDOW_WIDTH/2,WINDOW_HEIGHT/2)
 
     def gameloop(self):
         while self.running:
@@ -26,18 +31,14 @@ class Game():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
-                self.screen.fill('blue')
-
+            #backround fill
+            self.screen.fill('blue')
             #update
-
+            self.all_sprites.update(dt)
             #draw
+            self.all_sprites.draw(self.screen)
             pygame.display.update()  # or flip - flip updates a part of the window , update the whole window
         pygame.quit()
-
-class Player(Sprite):
-    def __init__(self,groups):
-        super().__init__(groups)
-
 
 if __name__ == '__main__':# to run only main file to avoid future messups
     game = Game()
