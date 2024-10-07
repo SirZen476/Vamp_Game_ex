@@ -11,6 +11,7 @@ from settings import *
 from player import Player
 from sprites import *
 from pytmx.util_pygame import load_pygame
+from groups import AllSprites
 
 class Game():
     def __init__(self):
@@ -21,11 +22,11 @@ class Game():
         self.running = True
         self.FPS_target = FPS_TARGET
         #groups
-        self.all_sprites = pygame.sprite.Group()
-        self.collision_sprites = pygame.sprite.Group()
+        self.all_sprites = AllSprites()
+        self.collision_sprites = AllSprites()
         #sprites
         self.setup()
-        self.player = Player(self.all_sprites,WINDOW_WIDTH/2,300,self.collision_sprites)
+        self.player = Player(self.all_sprites,WINDOW_WIDTH/2,WINDOW_HEIGHT/2,self.collision_sprites)
 
     def setup(self):
         map = load_pygame('data/maps/world.tmx')
@@ -51,7 +52,7 @@ class Game():
             #update
             self.all_sprites.update(dt)
             #draw
-            self.all_sprites.draw(self.screen)
+            self.all_sprites.draw(self.player.rect.center)
             pygame.display.update()  # or flip - flip updates a part of the window , update the whole window
         pygame.quit()
 

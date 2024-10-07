@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="imported data from world.tmx, onjects and level is showing, overlapping - need to fix">
+    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="added hidden collision with env (hidden walls)">
+      <change afterPath="$PROJECT_DIR$/groups.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/maps/world.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/world.tmx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sprites.py" beforeDir="false" afterPath="$PROJECT_DIR$/sprites.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728296628267</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added hidden collision with env (hidden walls)">
+      <option name="closed" value="true" />
+      <created>1728297627400</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1728297627400</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -168,7 +176,8 @@
     <MESSAGE value="added collision to player with collision sprites (both axis)" />
     <MESSAGE value="implemented rect hitbox - to make rect smaller in hitboxes" />
     <MESSAGE value="imported data from world.tmx, onjects and level is showing, overlapping - need to fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="imported data from world.tmx, onjects and level is showing, overlapping - need to fix" />
+    <MESSAGE value="added hidden collision with env (hidden walls)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added hidden collision with env (hidden walls)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -187,6 +196,16 @@
           <url>file://$PROJECT_DIR$/../Space_shooter/main.py</url>
           <line>39</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/player.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
