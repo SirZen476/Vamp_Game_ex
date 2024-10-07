@@ -9,6 +9,7 @@ from random import randint, uniform
 from pygame.sprite import Sprite
 from settings import *
 from player import Player
+from sprites import *
 
 class Game():
     def __init__(self):
@@ -20,8 +21,13 @@ class Game():
         self.FPS_target = FPS_TARGET
         #groups
         self.all_sprites = pygame.sprite.Group()
+        self.collision_sprites = pygame.sprite.Group()
         #sprites
         self.player = Player(self.all_sprites,WINDOW_WIDTH/2,WINDOW_HEIGHT/2)
+        for i in range(6):# for collision test
+            pos = (randint(0,WINDOW_WIDTH),randint(0,WINDOW_HEIGHT))
+            size = (randint(50,100),randint(50,100))
+            CollisionSprite(pos,size ,self.all_sprites)
 
     def gameloop(self):
         while self.running:
@@ -31,8 +37,9 @@ class Game():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
+                    pygame.quit()
             #backround fill
-            self.screen.fill('blue')
+            self.screen.fill('black')
             #update
             self.all_sprites.update(dt)
             #draw
@@ -43,3 +50,4 @@ class Game():
 if __name__ == '__main__':# to run only main file to avoid future messups
     game = Game()
     game.gameloop()
+    pygame.quit()
