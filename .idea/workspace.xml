@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="added gun sprite, follows player on right currently">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="gun now changes angle">
       <change beforePath="$PROJECT_DIR$/sprites.py" beforeDir="false" afterPath="$PROJECT_DIR$/sprites.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728310421438</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="gun now changes angle">
+      <option name="closed" value="true" />
+      <created>1728311000704</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1728311000704</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -220,7 +227,8 @@
     <MESSAGE value="loaded animation frames, simple down animation always moving" />
     <MESSAGE value="full working animation, stops when not moving" />
     <MESSAGE value="added gun sprite, follows player on right currently" />
-    <option name="LAST_COMMIT_MESSAGE" value="added gun sprite, follows player on right currently" />
+    <MESSAGE value="gun now changes angle" />
+    <option name="LAST_COMMIT_MESSAGE" value="gun now changes angle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -254,6 +262,11 @@
           <url>file://$PROJECT_DIR$/player.py</url>
           <line>73</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sprites.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
