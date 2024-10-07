@@ -4,13 +4,20 @@ from pygame.sprite import Sprite
 from settings import *
 
 class Player(Sprite):
-    def __init__(self, groups, x,y):
+    def __init__(self, groups, x,y,collision_sprites):
         super().__init__(groups)
         self.image = pygame.image.load('images/player/down/0.png').convert_alpha()
         self.rect = self.image.get_rect(center = (int(x),int(y)))
         #movment
         self.speed = 500
         self.direction = pygame.math.Vector2()
+
+        self.collision_sprites = collision_sprites
+
+    def collision(self,direction):
+        pass
+
+
     def collscreen(self):
         if (self.rect.bottom > WINDOW_HEIGHT and self.direction.y > 0) or (
                 self.rect.top < 0 and self.direction.y < 0):
@@ -28,7 +35,8 @@ class Player(Sprite):
 
 
     def move(self,dt):
-        self.rect.center += self.direction * self.speed * dt
+        self.rect.center.x += self.x * self.speed * dt
+        self.rect.center.y += self.direction.y * self.speed * dt
 
 
     def update(self,dt):

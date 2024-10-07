@@ -23,7 +23,7 @@ class Game():
         self.all_sprites = pygame.sprite.Group()
         self.collision_sprites = pygame.sprite.Group()
         #sprites
-        self.player = Player(self.all_sprites,WINDOW_WIDTH/2,WINDOW_HEIGHT/2)
+        self.player = Player(self.all_sprites,WINDOW_WIDTH/2,WINDOW_HEIGHT/,self.collision_sprites)
         for i in range(6):# for collision test
             pos = (randint(0,WINDOW_WIDTH),randint(0,WINDOW_HEIGHT))
             size = (randint(50,100),randint(50,100))
