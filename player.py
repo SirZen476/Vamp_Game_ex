@@ -8,6 +8,7 @@ class Player(Sprite):
         super().__init__(groups)
         self.image = pygame.image.load('images/player/down/0.png').convert_alpha()
         self.rect = self.image.get_rect(center = (int(x),int(y)))
+        self.hitbox_rect = self.rect.inflate(-60,0)
         #movment
         self.speed = 500
         self.direction = pygame.math.Vector2()
@@ -16,17 +17,18 @@ class Player(Sprite):
 
     def collision(self,direction):
         for sprite in self.collision_sprites:
-            if sprite.rect.colliderect(self.rect):
+            if sprite.rect.colliderect(self.hitbox_rect):
                 if direction == 'x':
                     if self.direction.x >0:# right side coll
-                        self.rect.right = sprite.rect.left#
+                        self.hitbox_rect.right = sprite.rect.left#
                     elif self.direction.x <0:# left side coll
-                        self.rect.left = sprite.rect.right
+                        self.hitbox_rect.left = sprite.rect.right
                 if direction == 'y':
                     if self.direction.y >0:# right side coll
-                        self.rect.bottom = sprite.rect.top
+                        self.hitbox_rect.bottom = sprite.rect.top
                     elif self.direction.y <0:# left side coll
-                        self.rect.top = sprite.rect.bottom  #
+                        self.hitbox_rect.top = sprite.rect.bottom  #
+        self.rect.center = self.hitbox_rect.center
 
 
 
@@ -48,9 +50,9 @@ class Player(Sprite):
 
 
     def move(self,dt):
-        self.rect.x += self.direction.x * self.speed * dt
+        self.hitbox_rect.x += self.direction.x * self.speed * dt
         self.collision('x')#horizantal
-        self.rect.y += self.direction.y * self.speed * dt
+        self.hitbox_rect.y += self.direction.y * self.speed * dt
         self.collision('y')#vertical
 
 

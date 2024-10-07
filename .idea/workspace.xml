@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="changed player movment to be first on x then on y for proper collisions&#10;added empy function collisions and passed collision_sprites to player">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="added collision to player with collision sprites (both axis)">
       <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728293903744</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added collision to player with collision sprites (both axis)">
+      <option name="closed" value="true" />
+      <created>1728294982315</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1728294982315</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -140,7 +146,8 @@
     <MESSAGE value="added 6 random sprites (squares) for collision testing" />
     <MESSAGE value="added collision_sprites group" />
     <MESSAGE value="changed player movment to be first on x then on y for proper collisions&#10;added empy function collisions and passed collision_sprites to player" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed player movment to be first on x then on y for proper collisions&#10;added empy function collisions and passed collision_sprites to player" />
+    <MESSAGE value="added collision to player with collision sprites (both axis)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added collision to player with collision sprites (both axis)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
