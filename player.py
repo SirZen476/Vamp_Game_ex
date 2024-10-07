@@ -15,7 +15,20 @@ class Player(Sprite):
         self.collision_sprites = collision_sprites
 
     def collision(self,direction):
-        pass
+        for sprite in self.collision_sprites:
+            if sprite.rect.colliderect(self.rect):
+                if direction == 'x':
+                    if self.direction.x >0:# right side coll
+                        self.rect.right = sprite.rect.left#
+                    elif self.direction.x <0:# left side coll
+                        self.rect.left = sprite.rect.right
+                if direction == 'y':
+                    if self.direction.y >0:# right side coll
+                        self.rect.bottom = sprite.rect.top
+                    elif self.direction.y <0:# left side coll
+                        self.rect.top = sprite.rect.bottom  #
+
+
 
 
     def collscreen(self):
@@ -35,8 +48,11 @@ class Player(Sprite):
 
 
     def move(self,dt):
-        self.rect.center.x += self.x * self.speed * dt
-        self.rect.center.y += self.direction.y * self.speed * dt
+        self.rect.x += self.direction.x * self.speed * dt
+        self.collision('x')#horizantal
+        self.rect.y += self.direction.y * self.speed * dt
+        self.collision('y')#vertical
+
 
 
     def update(self,dt):
