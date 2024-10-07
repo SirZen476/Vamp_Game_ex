@@ -18,6 +18,8 @@ class Player(Sprite):
         self.direction = pygame.math.Vector2()
         self.collision_sprites = collision_sprites
 
+        self.walk_anim_speed = 7
+
 
     def collision(self,direction):
         for sprite in self.collision_sprites:
@@ -71,5 +73,13 @@ class Player(Sprite):
         print(self.frames)
 
     def animate(self,dt):
-        self.frame_index += 5*dt
+        # state check:
+        if self.direction.x >0 : self.state = 'right'
+        if self.direction.x < 0: self.state = 'left'
+        if self.direction.y <0: self.state = 'up'
+        if self.direction.y > 0: self.state = 'down'
+        if self.direction:
+            self.frame_index += self.walk_anim_speed * dt
+        else : self.frame_index =0
+
         self.image = self.frames[self.state][int(self.frame_index) % len(self.frames[self.state])]
