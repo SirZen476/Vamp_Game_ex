@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="added collision to player with collision sprites (both axis)">
+    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="implemented rect hitbox - to make rect smaller in hitboxes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprites.py" beforeDir="false" afterPath="$PROJECT_DIR$/sprites.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728294982315</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="implemented rect hitbox - to make rect smaller in hitboxes">
+      <option name="closed" value="true" />
+      <created>1728295347139</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1728295347139</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -147,7 +158,8 @@
     <MESSAGE value="added collision_sprites group" />
     <MESSAGE value="changed player movment to be first on x then on y for proper collisions&#10;added empy function collisions and passed collision_sprites to player" />
     <MESSAGE value="added collision to player with collision sprites (both axis)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added collision to player with collision sprites (both axis)" />
+    <MESSAGE value="implemented rect hitbox - to make rect smaller in hitboxes" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented rect hitbox - to make rect smaller in hitboxes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

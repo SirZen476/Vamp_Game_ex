@@ -1,19 +1,20 @@
 from Tools.demo.spreadsheet import center
 from pygame.sprite import Sprite
-
 from settings import *
+from sprites import CollisionSprite
+
 
 class Player(Sprite):
     def __init__(self, groups, x,y,collision_sprites):
         super().__init__(groups)
         self.image = pygame.image.load('images/player/down/0.png').convert_alpha()
         self.rect = self.image.get_rect(center = (int(x),int(y)))
-        self.hitbox_rect = self.rect.inflate(-60,0)
+        self.hitbox_rect = self.rect.inflate(-60,-15)
         #movment
         self.speed = 500
         self.direction = pygame.math.Vector2()
-
         self.collision_sprites = collision_sprites
+
 
     def collision(self,direction):
         for sprite in self.collision_sprites:
@@ -28,7 +29,6 @@ class Player(Sprite):
                         self.hitbox_rect.bottom = sprite.rect.top
                     elif self.direction.y <0:# left side coll
                         self.hitbox_rect.top = sprite.rect.bottom  #
-        self.rect.center = self.hitbox_rect.center
 
 
 
@@ -54,6 +54,7 @@ class Player(Sprite):
         self.collision('x')#horizantal
         self.hitbox_rect.y += self.direction.y * self.speed * dt
         self.collision('y')#vertical
+        self.rect.center = self.hitbox_rect.center
 
 
 
