@@ -27,7 +27,7 @@ class Game():
         for i in range(6):# for collision test
             pos = (randint(0,WINDOW_WIDTH),randint(0,WINDOW_HEIGHT))
             size = (randint(50,100),randint(50,100))
-            CollisionSprite(pos,size ,self.all_sprites)
+            CollisionSprite(pos,size ,(self.all_sprites,self.collision_sprites))
 
     def gameloop(self):
         while self.running:
