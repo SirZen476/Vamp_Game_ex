@@ -15,7 +15,7 @@ from groups import AllSprites
 
 class Game():
     def __init__(self):
-        #pygame.init()# init pygame, causes freeze at start - neet to see if something goes wrong
+        pygame.init()# init pygame, causes freeze at start - neet to see if something goes wrong
         self.screen = pygame.display.set_mode((WINDOW_WIDTH,WINDOW_HEIGHT))# create screen
         pygame.display.set_caption('Vamp Survivor')
         self.clock = pygame.time.Clock()  # control framerate, control
