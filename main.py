@@ -40,7 +40,6 @@ class Game():
             CollisionSprite((obj.x,obj.y),obj.image,(self.all_sprites,self.collision_sprites))
 
         for obj in map.get_layer_by_name(('Entities')):
-            print(obj.name)
             if(obj.name == 'Player'):
                 self.player = Player(self.all_sprites, obj.x, obj.y, self.collision_sprites)
 

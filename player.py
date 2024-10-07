@@ -7,9 +7,12 @@ from sprites import CollisionSprite
 class Player(Sprite):
     def __init__(self, groups, x,y,collision_sprites):
         super().__init__(groups)
+        self.load_images()
+        self.state = 'down'
+        self.frame_index = 0
         self.image = pygame.image.load('images/player/down/0.png').convert_alpha()
         self.rect = self.image.get_rect(center = (int(x),int(y)))
-        self.hitbox_rect = self.rect.inflate(-60,-80)
+        self.hitbox_rect = self.rect.inflate(-60,-90)
         #movment
         self.speed = 500
         self.direction = pygame.math.Vector2()
@@ -45,7 +48,6 @@ class Player(Sprite):
         #self.collscreen()# to collision with screen boundary
         if self.direction: self.direction.normalize()
 
-
     def move(self,dt):
         self.hitbox_rect.x += self.direction.x * self.speed * dt
         self.collision('x')#horizantal
@@ -53,9 +55,21 @@ class Player(Sprite):
         self.collision('y')#vertical
         self.rect.center = self.hitbox_rect.center
 
-
-
     def update(self,dt):
         self.input()
         self.move(dt)
+        self.animate(dt)
 
+    def load_images(self):
+        self.frames = {"left":[], "right":[], "up":[], "down":[]}# frame dictionary
+        for state in self.frames.keys():
+            for folder_path, sub_folders, file_names in walk(join('images','player',state)):
+                if file_names:
+                    for file_name in sorted(file_names,key = lambda name: int(name.split('.')[0])):
+                        full_path = join(folder_path, file_name)
+                        self.frames[state].append(pygame.image.load(full_path).convert_alpha())
+        print(self.frames)
+
+    def animate(self,dt):
+        self.frame_index += 5*dt
+        self.image = self.frames[self.state][int(self.frame_index) % len(self.frames[self.state])]

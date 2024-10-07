@@ -167,20 +167,20 @@
   </object>
  </objectgroup>
  <objectgroup id="2" name="Collisions">
-  <object id="74" x="808" y="1961.33" width="118.667" height="122.667"/>
-  <object id="75" x="1605.33" y="2172" width="185.333" height="200"/>
-  <object id="76" x="2146.67" y="1370.67" width="128" height="134.667"/>
-  <object id="77" x="1321.33" y="925.333" width="129.333" height="134.667"/>
-  <object id="78" x="1378.67" y="873.333" width="137.333" height="114.667"/>
-  <object id="79" x="1446.67" y="804" width="120" height="133.333"/>
-  <object id="80" x="584" y="2667.33" width="1341.33" height="82"/>
-  <object id="81" x="1898.67" y="2601.33" width="224" height="62.6667"/>
-  <object id="82" x="2093.33" y="2543.33" width="280" height="71.3333"/>
-  <object id="83" x="2344.67" y="2479.33" width="160.667" height="76.667"/>
-  <object id="84" x="2474" y="2415.33" width="126" height="64.6667"/>
-  <object id="85" x="2607.33" y="2350.67" width="174" height="86.6667"/>
+  <object id="74" x="808" y="1939.33" width="118.667" height="144.667"/>
+  <object id="75" x="1605.33" y="2132" width="185.333" height="240"/>
+  <object id="76" x="2146.67" y="1362.67" width="128" height="142.667"/>
+  <object id="77" x="1321.33" y="905.333" width="129.333" height="154.667"/>
+  <object id="78" x="1378.67" y="841.333" width="137.333" height="146.667"/>
+  <object id="79" x="1446.67" y="796" width="120" height="141.333"/>
+  <object id="80" x="584" y="2637.33" width="1341.33" height="112"/>
+  <object id="81" x="1898.67" y="2577.33" width="224" height="86.6667"/>
+  <object id="82" x="2093.33" y="2511.33" width="280" height="103.333"/>
+  <object id="83" x="2344.67" y="2447.33" width="160.667" height="108.667"/>
+  <object id="84" x="2474" y="2381.33" width="126" height="98.6667"/>
+  <object id="85" x="2607.33" y="2314.67" width="174" height="122.667"/>
   <object id="86" x="2729.33" y="1776" width="81.333" height="601.333"/>
-  <object id="87" x="-6.66667" y="2474" width="526" height="86"/>
+  <object id="87" x="-6.66667" y="2444" width="526" height="116"/>
   <object id="88" x="2626.67" y="1409.33" width="692.667" height="72"/>
   <object id="89" x="2676" y="960" width="74.667" height="257.333"/>
   <object id="90" x="2626.67" y="761.333" width="62.667" height="241.333"/>
@@ -195,10 +195,10 @@
   <object id="99" x="516" y="452" width="62.667" height="441.333"/>
   <object id="100" x="569.333" y="893.333" width="70.667" height="470.667"/>
   <object id="101" x="518" y="1274.67" width="47.333" height="964"/>
-  <object id="157" x="1744" y="1606" width="178" height="249"/>
-  <object id="158" x="1808" y="1543" width="172" height="177"/>
-  <object id="159" x="1942" y="1534" width="104" height="114"/>
-  <object id="160" x="1194" y="1448" width="436" height="129"/>
+  <object id="157" x="1744" y="1586" width="178" height="293"/>
+  <object id="158" x="1808" y="1521" width="172" height="199"/>
+  <object id="159" x="1942" y="1510" width="104" height="138"/>
+  <object id="160" x="1190" y="1432" width="440" height="131"/>
   <object id="161" x="1519" y="1560" width="108" height="188"/>
   <object id="175" x="355.333" y="106.667" width="117.333" height="114.667"/>
   <object id="176" x="-11.6665" y="2302" width="513.333" height="68"/>
