@@ -20,7 +20,6 @@ class Player(Sprite):
 
         self.walk_anim_speed = 7
 
-
     def collision(self,direction):
         for sprite in self.collision_sprites:
             if sprite.rect.colliderect(self.hitbox_rect):
