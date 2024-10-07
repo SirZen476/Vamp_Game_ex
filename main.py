@@ -23,19 +23,26 @@ class Game():
         self.FPS_target = FPS_TARGET
         #groups
         self.all_sprites = AllSprites()
+
         self.collision_sprites = AllSprites()
         #sprites
         self.setup()
-        self.player = Player(self.all_sprites,WINDOW_WIDTH/2,WINDOW_HEIGHT/2,self.collision_sprites)
 
     def setup(self):
         map = load_pygame('data/maps/world.tmx')
         for obj in map.get_layer_by_name('Collisions'):# first ground collisions so will be invisible
             HiddenSprite((obj.x,obj.y),(obj.width,obj.height),(self.all_sprites,self.collision_sprites))
+
         for x,y,image in map.get_layer_by_name('Ground').tiles():# first ground to show on top
             GroundSprite((x*TILE_SIZE,y*TILE_SIZE),image,self.all_sprites)
+
         for obj in map.get_layer_by_name('Objects'):# then objects
             CollisionSprite((obj.x,obj.y),obj.image,(self.all_sprites,self.collision_sprites))
+
+        for obj in map.get_layer_by_name(('Entities')):
+            print(obj.name)
+            if(obj.name == 'Player'):
+                self.player = Player(self.all_sprites, obj.x, obj.y, self.collision_sprites)
 
 
     def gameloop(self):

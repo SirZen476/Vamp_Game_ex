@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="added hidden collision with env (hidden walls)">
-      <change afterPath="$PROJECT_DIR$/groups.py" afterDir="false" />
+    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="added camera that follows player around">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/maps/world.tmx" beforeDir="false" afterPath="$PROJECT_DIR$/data/maps/world.tmx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/groups.py" beforeDir="false" afterPath="$PROJECT_DIR$/groups.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprites.py" beforeDir="false" afterPath="$PROJECT_DIR$/sprites.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728297627400</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added camera that follows player around">
+      <option name="closed" value="true" />
+      <created>1728298418225</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1728298418225</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -177,7 +187,8 @@
     <MESSAGE value="implemented rect hitbox - to make rect smaller in hitboxes" />
     <MESSAGE value="imported data from world.tmx, onjects and level is showing, overlapping - need to fix" />
     <MESSAGE value="added hidden collision with env (hidden walls)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added hidden collision with env (hidden walls)" />
+    <MESSAGE value="added camera that follows player around" />
+    <option name="LAST_COMMIT_MESSAGE" value="added camera that follows player around" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
