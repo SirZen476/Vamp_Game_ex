@@ -26,6 +26,9 @@ class Game():
         self.collision_sprites = AllSprites()
         self.bullet_sprites = AllSprites()
         self.enemy_sprites = AllSprites()
+        #hit timer for player
+        self.last_hit = 0.0
+        self.hp_cooldown = 1000
 
         # enemy timer
         self.enemy_event = pygame.event.custom_type()
@@ -54,6 +57,13 @@ class Game():
             else:
                 self.spawn_pos.append((obj.x,obj.y))
 
+    def cooldown_check(self):# check if firing interval has passed.
+        current_time = pygame.time.get_ticks()
+        interval = current_time - self.last_hit
+        if interval > self.hp_cooldown:
+            return True
+        else : return False
+
     def load_enemy_frames(self):
         self.frames = {"bat": [], "blob": [], "skeleton": [],}  # frame dictionary
         for state in self.frames.keys():
@@ -72,6 +82,13 @@ class Game():
                     bullet.kill()
                     break
 
+    def collision_enemy(self):
+        for sprite in self.enemy_sprites:
+            if sprite.hitbox_rect.colliderect(self.player.hitbox_rect) and self.cooldown_check():
+                self.last_hit =pygame.time.get_ticks()
+                if not self.player.hit_enemy():
+                    self.running = False
+
     def gameloop(self):
         while self.running:
             #dt calc
@@ -88,8 +105,8 @@ class Game():
             self.screen.fill('black')
             #update
             self.all_sprites.update(dt)
-            self.collision_bullet()
-            self.running = self.player.collision_enemy()
+            self.collision_bullet()#coll bullet enemy
+            self.collision_enemy()#coll player, co
 
             #draw
             self.all_sprites.draw(self.player.rect.center)
