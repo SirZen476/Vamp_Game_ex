@@ -69,7 +69,6 @@ class Player(Sprite):
                     for file_name in sorted(file_names,key = lambda name: int(name.split('.')[0])):
                         full_path = join(folder_path, file_name)
                         self.frames[state].append(pygame.image.load(full_path).convert_alpha())
-        print(self.frames)
 
     def animate(self,dt):
         # state check:

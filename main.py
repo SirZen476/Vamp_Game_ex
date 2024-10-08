@@ -4,7 +4,7 @@ import random
 import pygame
 from Tools.scripts.dutree import display
 from fontTools.merge.util import current_time
-from sympy.core.random import randint
+from sympy.core.random import randint ,choice
 from random import randint, uniform
 from pygame.sprite import Sprite
 from settings import *
@@ -25,7 +25,14 @@ class Game():
         self.all_sprites = AllSprites()
 
         self.collision_sprites = AllSprites()
-        #sprites
+
+        # enemy timer
+        self.enemy_event = pygame.event.custom_type()
+        pygame.time.set_timer(self.enemy_event, 500)
+        self.spawn_pos = []
+
+        # setup
+        self.load_enemy_frames()
         self.setup()
 
     def setup(self):
@@ -43,6 +50,18 @@ class Game():
             if(obj.name == 'Player'):
                 self.player = Player(self.all_sprites, obj.x, obj.y, self.collision_sprites)
                 self.gun = Gun(self.player,self.all_sprites)
+            else:
+                self.spawn_pos.append((obj.x,obj.y))
+
+    def load_enemy_frames(self):
+        self.frames = {"bat": [], "blob": [], "skeleton": [],}  # frame dictionary
+        for state in self.frames.keys():
+            for folder_path, sub_folders, file_names in walk(join('images', 'enemies', state)):
+                if file_names:
+                    for file_name in sorted(file_names, key=lambda name: int(name.split('.')[0])):
+                        full_path = join(folder_path, file_name)
+                        self.frames[state].append(pygame.image.load(full_path).convert_alpha())
+        print(self.frames)
 
 
     def gameloop(self):
@@ -54,6 +73,9 @@ class Game():
                 if event.type == pygame.QUIT:
                     running = False
                     pygame.quit()
+                if event.type == self.enemy_event:
+                    print("spawn")
+                    Enemy(choice(self.spawn_pos),self.frames['bat'], self.player, self.all_sprites,self.collision_sprites )
             #backround fill
             self.screen.fill('black')
             #update

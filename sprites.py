@@ -92,5 +92,62 @@ class bullet(Sprite):
         self.rect.x += self.direction.x * self.speed * dt
         self.rect.y += self.direction.y * self.speed * dt
 
+class Enemy(Sprite):
+    def __init__(self,pos,frames,player, groups,collision_sprites):
+        super().__init__(groups)
+        self.player = player
+        #image
+        self.frames = frames
+        self.frame_index = 0
+        self.image = self.frames[self.frame_index]
+        self.walk_anim_speed = 7
+
+        #rect
+        self.rect = self.image.get_rect(center = pos)
+        self.hitbox_rect = self.rect.inflate(-20,-40)
+        self.collision_sprites = collision_sprites
+        self.direction = pygame.Vector2()
+        self.speed = 350
+
+    def collision(self,direction):
+        for sprite in self.collision_sprites:
+            if sprite.rect.colliderect(self.hitbox_rect):
+                if direction == 'x':
+                    if self.direction.x >0:# right side coll
+                        self.hitbox_rect.right = sprite.rect.left#
+                    elif self.direction.x <0:# left side coll
+                        self.hitbox_rect.left = sprite.rect.right
+                if direction == 'y':
+                    if self.direction.y >0:# right side coll
+                        self.hitbox_rect.bottom = sprite.rect.top
+                    elif self.direction.y <0:# left side coll
+                        self.hitbox_rect.top = sprite.rect.bottom  #
+
+    def move(self,dt):
+        self.hitbox_rect.x += self.direction.x * self.speed * dt
+        self.collision('x')#horizantal
+        self.hitbox_rect.y += self.direction.y * self.speed * dt
+        self.collision('y')#vertical
+        self.rect.center = self.hitbox_rect.center
+
+    def update(self,dt):
+        # move to player here
+        self.direction = pygame.Vector2(-self.rect.centerx + self.player.rect.centerx,-self.rect.centery + self.player.rect.centery).normalize()
+        self.move(dt)
+        self.animate(dt)
+
+    def animate(self,dt):
+        # state check:
+        if self.direction.x >0 : self.state = 'right'
+        if self.direction.x < 0: self.state = 'left'
+        if self.direction.y <0: self.state = 'up'
+        if self.direction.y > 0: self.state = 'down'
+        if self.direction:
+            self.frame_index += self.walk_anim_speed * dt
+        else : self.frame_index =0
+
+        self.image = self.frames[int(self.frame_index) % len(self.frames)]
+
+
 
 

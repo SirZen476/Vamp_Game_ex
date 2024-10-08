@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="added bullet sprite, gun now shoots bullets, need to implement a timer">
+    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="gun shoots bullet on timer (1500 msec bullet life , shooting cooldown 400msec), points in direction of mouse properly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sprites.py" beforeDir="false" afterPath="$PROJECT_DIR$/sprites.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728311663032</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="gun shoots bullet on timer (1500 msec bullet life , shooting cooldown 400msec), points in direction of mouse properly">
+      <option name="closed" value="true" />
+      <created>1728313405894</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1728313405894</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -239,7 +248,8 @@
     <MESSAGE value="added gun sprite, follows player on right currently" />
     <MESSAGE value="gun now changes angle" />
     <MESSAGE value="added bullet sprite, gun now shoots bullets, need to implement a timer" />
-    <option name="LAST_COMMIT_MESSAGE" value="added bullet sprite, gun now shoots bullets, need to implement a timer" />
+    <MESSAGE value="gun shoots bullet on timer (1500 msec bullet life , shooting cooldown 400msec), points in direction of mouse properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="gun shoots bullet on timer (1500 msec bullet life , shooting cooldown 400msec), points in direction of mouse properly" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -260,24 +270,24 @@
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>16</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/player.py</url>
           <line>44</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/player.py</url>
-          <line>73</line>
+          <line>72</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/sprites.py</url>
           <line>26</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
