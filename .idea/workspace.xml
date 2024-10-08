@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="gun shoots bullet on timer (1500 msec bullet life , shooting cooldown 400msec), points in direction of mouse properly">
+    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="added function to load enemy images, added enemy spawn every 500 msec, animated enemy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
@@ -227,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728313405894</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="added function to load enemy images, added enemy spawn every 500 msec, animated enemy">
+      <option name="closed" value="true" />
+      <created>1728393501266</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1728393501266</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -249,7 +257,8 @@
     <MESSAGE value="gun now changes angle" />
     <MESSAGE value="added bullet sprite, gun now shoots bullets, need to implement a timer" />
     <MESSAGE value="gun shoots bullet on timer (1500 msec bullet life , shooting cooldown 400msec), points in direction of mouse properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="gun shoots bullet on timer (1500 msec bullet life , shooting cooldown 400msec), points in direction of mouse properly" />
+    <MESSAGE value="added function to load enemy images, added enemy spawn every 500 msec, animated enemy" />
+    <option name="LAST_COMMIT_MESSAGE" value="added function to load enemy images, added enemy spawn every 500 msec, animated enemy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -271,12 +280,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/player.py</url>
-          <line>44</line>
+          <line>64</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/player.py</url>
-          <line>72</line>
+          <line>92</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">

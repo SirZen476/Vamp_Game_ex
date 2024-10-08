@@ -25,12 +25,13 @@ class HiddenSprite(Sprite):
         self.rect = self.image.get_rect(topleft = pos)
 
 class Gun(Sprite):
-    def __init__(self,player,groups):
+    def __init__(self,player,groups,bullet_group):
         self.player = player
         self.distance = 140
         self.player_direction = pygame.Vector2(1,0)
         self.angle = 0
         self.groups = groups
+        self.bullet_group = bullet_group
         # sprite setup
         super().__init__(groups)
         self.gun_surface = pygame.image.load(join('images','gun','gun.png')).convert_alpha()
@@ -54,7 +55,7 @@ class Gun(Sprite):
     def input(self):
         mouse_in = pygame.mouse.get_pressed()
         if(mouse_in[0] and self.cooldown_check()):
-            bullet(self.groups,self)
+            bullet( (self.groups, self.bullet_group), self)
             self.last_shot = pygame.time.get_ticks()
 
     def rotate_gun(self):
@@ -91,6 +92,7 @@ class bullet(Sprite):
             self.kill()
         self.rect.x += self.direction.x * self.speed * dt
         self.rect.y += self.direction.y * self.speed * dt
+
 
 class Enemy(Sprite):
     def __init__(self,pos,frames,player, groups,collision_sprites):
@@ -132,7 +134,9 @@ class Enemy(Sprite):
 
     def update(self,dt):
         # move to player here
-        self.direction = pygame.Vector2(-self.rect.centerx + self.player.rect.centerx,-self.rect.centery + self.player.rect.centery).normalize()
+
+        self.direction = pygame.Vector2(-self.rect.centerx + self.player.rect.centerx,-self.rect.centery + self.player.rect.centery)
+        if self.direction: self.direction = self.direction.normalize()
         self.move(dt)
         self.animate(dt)
 

@@ -23,8 +23,9 @@ class Game():
         self.FPS_target = FPS_TARGET
         #groups
         self.all_sprites = AllSprites()
-
         self.collision_sprites = AllSprites()
+        self.bullet_sprites = AllSprites()
+        self.enemy_sprites = AllSprites()
 
         # enemy timer
         self.enemy_event = pygame.event.custom_type()
@@ -48,8 +49,8 @@ class Game():
 
         for obj in map.get_layer_by_name(('Entities')):
             if(obj.name == 'Player'):
-                self.player = Player(self.all_sprites, obj.x, obj.y, self.collision_sprites)
-                self.gun = Gun(self.player,self.all_sprites)
+                self.player = Player(self.all_sprites, obj.x, obj.y, self.collision_sprites,self.enemy_sprites)
+                self.gun = Gun(self.player,self.all_sprites,self.bullet_sprites)
             else:
                 self.spawn_pos.append((obj.x,obj.y))
 
@@ -63,6 +64,13 @@ class Game():
                         self.frames[state].append(pygame.image.load(full_path).convert_alpha())
         print(self.frames)
 
+    def collision_bullet(self):
+        for enemy in self.enemy_sprites:
+            for bullet in self.bullet_sprites:
+                if enemy.hitbox_rect.colliderect(bullet.rect):
+                    enemy.kill()
+                    bullet.kill()
+                    break
 
     def gameloop(self):
         while self.running:
@@ -74,12 +82,15 @@ class Game():
                     running = False
                     pygame.quit()
                 if event.type == self.enemy_event:
-                    print("spawn")
-                    Enemy(choice(self.spawn_pos),self.frames['bat'], self.player, self.all_sprites,self.collision_sprites )
+                    enemy_type = choice(["bat","blob","skeleton"])
+                    Enemy(choice(self.spawn_pos),self.frames[enemy_type], self.player, (self.all_sprites,self.enemy_sprites),self.collision_sprites )
             #backround fill
             self.screen.fill('black')
             #update
             self.all_sprites.update(dt)
+            self.collision_bullet()
+            self.running = self.player.collision_enemy()
+
             #draw
             self.all_sprites.draw(self.player.rect.center)
             pygame.display.update()  # or flip - flip updates a part of the window , update the whole window

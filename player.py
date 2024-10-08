@@ -5,7 +5,7 @@ from sprites import CollisionSprite
 
 
 class Player(Sprite):
-    def __init__(self, groups, x,y,collision_sprites):
+    def __init__(self, groups, x,y,collision_sprites,enemy_sprites):
         super().__init__(groups)
         self.load_images()
         self.state = 'down'
@@ -17,8 +17,19 @@ class Player(Sprite):
         self.speed = 500
         self.direction = pygame.math.Vector2()
         self.collision_sprites = collision_sprites
+        self.enemy_sprites = enemy_sprites
+        self.hp = 3
+        self.last_hit = 0.0
+        self.hp_cooldown = 1000
 
         self.walk_anim_speed = 7
+
+    def cooldown_check(self):# check if firing interval has passed.
+        current_time = pygame.time.get_ticks()
+        interval = current_time - self.last_hit
+        if interval > self.hp_cooldown:
+            return True
+        else : return False
 
     def collision(self,direction):
         for sprite in self.collision_sprites:
@@ -33,6 +44,15 @@ class Player(Sprite):
                         self.hitbox_rect.bottom = sprite.rect.top
                     elif self.direction.y <0:# left side coll
                         self.hitbox_rect.top = sprite.rect.bottom  #
+
+    def collision_enemy(self):
+        for sprite in self.enemy_sprites:
+            if sprite.hitbox_rect.colliderect(self.hitbox_rect) and self.cooldown_check():
+                self.last_hit = pygame.time.get_ticks()
+                self.hp -= 1
+                print("hp: ",self.hp)
+                if self.hp == 0 : return False
+        return True
 
     def collscreen(self):
         if (self.rect.bottom > WINDOW_HEIGHT and self.direction.y > 0) or (
