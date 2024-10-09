@@ -29,6 +29,7 @@ class Game():
         #hit timer for player
         self.last_hit = 0.0
         self.hp_cooldown = 1000
+        self.font = pygame.font.Font('font/Oxanium-Bold.ttf', 30)
 
         # enemy timer
         self.enemy_event = pygame.event.custom_type()
@@ -36,8 +37,16 @@ class Game():
         self.spawn_pos = []
 
         # setup
+        self.load_audio()
         self.load_enemy_frames()
         self.setup()
+
+    def load_audio(self):
+        self.sound_impact = pygame.mixer.Sound('audio/impact.ogg')
+        self.sound_shoot = pygame.mixer.Sound('audio/shoot.wav')
+        self.sound_game = pygame.mixer.Sound('audio/music.wav')
+        self.sound_game.set_volume(0.4)
+        self.sound_game.play(loops=-1)
 
     def setup(self):
         map = load_pygame('data/maps/world.tmx')
@@ -72,7 +81,13 @@ class Game():
                     for file_name in sorted(file_names, key=lambda name: int(name.split('.')[0])):
                         full_path = join(folder_path, file_name)
                         self.frames[state].append(pygame.image.load(full_path).convert_alpha())
-        print(self.frames)
+
+    def collision_bullets_obj(self):
+        for obj in self.collision_sprites:
+            for bullet in self.bullet_sprites:
+                if obj.rect.colliderect(bullet.rect):
+                    bullet.kill()
+                    self.sound_impact.play()
 
     def collision_bullet(self):
         for enemy in self.enemy_sprites:
@@ -80,12 +95,14 @@ class Game():
                 if enemy.hitbox_rect.colliderect(bullet.rect):
                     enemy.kill()
                     bullet.kill()
+                    self.sound_impact.play()
                     break
 
     def collision_enemy(self):
         for sprite in self.enemy_sprites:
             if sprite.hitbox_rect.colliderect(self.player.hitbox_rect) and self.cooldown_check():
                 self.last_hit =pygame.time.get_ticks()
+                self.sound_impact.play()
                 if not self.player.hit_enemy():
                     self.running = False
 
@@ -105,13 +122,21 @@ class Game():
             self.screen.fill('black')
             #update
             self.all_sprites.update(dt)
+            self.collision_bullets_obj()#coll bullet with enviorment and collision sprites
             self.collision_bullet()#coll bullet enemy
             self.collision_enemy()#coll player, co
 
             #draw
             self.all_sprites.draw(self.player.rect.center)
+            self.draw_hp()
             pygame.display.update()  # or flip - flip updates a part of the window , update the whole window
         pygame.quit()
+
+    def draw_hp(self):
+        hp_surt = self.font.render('health: ' + str(self.player.hp), True, 'red')
+        hp_rect = hp_surt.get_rect(topleft=(10, 10))
+        self.screen.blit(hp_surt, hp_rect)
+        pygame.draw.rect(self.screen, 'red', hp_rect.inflate(20, 15), 5, 10)
 
 if __name__ == '__main__':# to run only main file to avoid future messups
     game = Game()

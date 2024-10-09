@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="added collision (player enemy - 3hp system ) and (bullet enemy- 1 hp)">
+    <list default="true" id="ad34c506-176c-4b3f-9f02-2f004c637ed2" name="Changes" comment="cleanup - moved collision detect to game (main.py file) ,">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/player.py" afterDir="false" />
     </list>
@@ -241,7 +242,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728394988605</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="cleanup - moved collision detect to game (main.py file) ,">
+      <option name="closed" value="true" />
+      <created>1728395469303</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1728395469303</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -265,7 +274,8 @@
     <MESSAGE value="gun shoots bullet on timer (1500 msec bullet life , shooting cooldown 400msec), points in direction of mouse properly" />
     <MESSAGE value="added function to load enemy images, added enemy spawn every 500 msec, animated enemy" />
     <MESSAGE value="added collision (player enemy - 3hp system ) and (bullet enemy- 1 hp)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added collision (player enemy - 3hp system ) and (bullet enemy- 1 hp)" />
+    <MESSAGE value="cleanup - moved collision detect to game (main.py file) ," />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup - moved collision detect to game (main.py file) ," />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -287,12 +297,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/player.py</url>
-          <line>54</line>
+          <line>52</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/player.py</url>
-          <line>82</line>
+          <line>80</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -304,6 +314,21 @@
           <url>file://$PROJECT_DIR$/main.py</url>
           <line>16</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>108</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/player.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/../Space_shooter/main.py</url>
+          <line>163</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

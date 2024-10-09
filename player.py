@@ -39,10 +39,8 @@ class Player(Sprite):
     def hit_enemy(self):
         self.last_hit = pygame.time.get_ticks()
         self.hp -= 1
-        print("hp: ",self.hp)
         if self.hp ==0 : return False
         return True
-
 
     def collscreen(self):
         if (self.rect.bottom > WINDOW_HEIGHT and self.direction.y > 0) or (
@@ -91,3 +89,5 @@ class Player(Sprite):
         else : self.frame_index =0
 
         self.image = self.frames[self.state][int(self.frame_index) % len(self.frames[self.state])]
+
+
